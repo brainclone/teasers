@@ -1,7 +1,6 @@
-// for execution with node.js;
+// require() is recognizable by node.js but not by browser;
 // for running/debugging in browser, put utils.js and this file in <script> elements,
-// and comment this line out.
-require("./utils.js");
+if (typeof require === "function") require("./utils.js");
 
 // Find K largest numbers in two sorted arrays.
 function k_largest(a, b, c, k) {
