@@ -17,7 +17,7 @@ function update_row (n, b, b1, b2){
 }
 
 function update_field(g, m, n){
-	var b1, b, b2;
+	var b1, b, b2, b0; // b0 is for saving the first row
 	
 	b1 = g[m-1].slice(0);
 	for (var i = 0; i<m; i++){
@@ -26,8 +26,10 @@ function update_field(g, m, n){
 		update_row(n, b, b1, b2);
 		// swap (via copy) b and g[i];
 		b1 = g[i].slice(0);
-		g[i] = b.slice(0);
+		if (i !== 0) {g[i] = b.slice(0);}
+		else b0 = b.slice(0);
 	}
+	g[0] = b0.slice(0);
 }
 
 function print_g(g, m, n){
@@ -42,7 +44,7 @@ var g = [
 	[1, 0, 0, 1, 0, 0],
 	[1, 1, 0, 0, 1, 0],
 	[0, 0, 0, 0, 0, 0],
-	[1, 0, 0, 0, 1, 0],
+	[0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 1, 0, 1],
 ];
 
