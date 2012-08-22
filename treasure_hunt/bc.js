@@ -47,7 +47,7 @@ function getFactors(n, x){
 function getRep(r, n, d){
 	var t=n; var i;
 	for (i=0; t>0; i++){
-			r[i] = t-Math.floor(t/d)*d;
+			r[i] = t % d;
 			t = Math.floor(t/d);
 	}
 	if (n === 0){ r[0] = 0; i=1;}
