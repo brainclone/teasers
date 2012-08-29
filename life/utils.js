@@ -19,7 +19,10 @@ debug = function (){
 	return {
 		setLevel: function(l){ level = l;},
 		log: function(l, msg){
-			if (l<=level) console.log(format(msg));
+			if (l<level+1){
+				var s = format.apply(this, Array.prototype.slice.call(arguments, 1));
+				console.log(s);
+			}
 		}
 	};
 }();
